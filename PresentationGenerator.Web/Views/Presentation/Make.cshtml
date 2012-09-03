@@ -1,0 +1,202 @@
+﻿@model PresentationGenerator.Core.Views.Models.Output.GetPresentationViewModel
+@* Required so you have extention methods for client timings *@
+@using StackExchange.Profiling;
+@{
+    ViewBag.Title = "Create New Presentation";
+    Layout = "~/Views/Shared/_bootstrapLayout.cshtml";
+}
+@section navigation
+{
+              <li class="active"><a href="/Presentation/Make">Make</a></li>
+              <li><a href="/Presentation/Mine">Mine</a></li>
+              <li><a href="/Presentation/Demo" title="(Chrome/Firefox/IE10) only">A Demo</a></li>
+}
+
+@section css
+{
+    @this.TimeScript("jHtmlArea.css", 
+        @<link href="@Url.Content("~/Content/jHtmlArea/jHtmlArea.css")" rel="stylesheet" type="text/css" />)
+}
+
+@section scripts
+{
+    @this.TimeScript("knob",
+        @<script src="@Url.Content("~/Scripts/knob/jquery.knob.js")" type="text/javascript"></script>)
+        
+    @this.TimeScript("jHtmlArea.js",
+        @<script src="@Url.Content("~/Scripts/jHtmlArea/jHtmlArea-0.7.5.min.js")" type="text/javascript"></script>)
+    @this.TimeScript("models",
+        @<script src="@Url.Content("~/Scripts/application/models.js")" type="text/javascript"></script>)
+    @this.TimeScript("models",
+        @<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>)
+    @this.TimeScript("createnewpresentation",
+        @<script src="@Url.Content("~/Scripts/application/presentation.make.js")" type="text/javascript"></script>)
+}
+<h2>
+    Create New Presentation</h2>
+@using (Html.BeginForm("Make", "Presentation", FormMethod.Post, new { @id = "makeform" }))
+{
+    <input type="hidden" name="PresentationId" id="PresentationId" readonly="readonly" class="input-large" value="@Html.Raw(Model.Id)" />
+    <div class="row messagerow">
+        <div class="span4">
+            <input type="button" id="newpage" value="New Page" class="btn" />
+            <input type="button" name="savebutton" id="savebutton" value="Save" class="btn btn-primary" />
+            <input type="button" name="viewbutton" id="viewbutton" value="View" class="btn hide" />
+        </div>
+        <div class="span8" id="systemmessage">
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <label for="Title">
+                Title</label>
+            <input type="text" name="Title" id="Title" class="required input-xxlarge" value="@Html.Raw(Model.Title)" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            Pages
+        </div>
+    </div>
+
+    
+<div class="row">
+    <div class="span12">
+        <div id="tabs">
+            <ul>
+                @for (var x = 0; x < Model.Pages.Count; x++)
+                {
+                    <li><a href="@string.Format("#page-{0}", x)">
+                    <input type='text' name="@string.Format("Pages[{0}].Id",x)" name="@string.Format("Pages_{0}_Id",x)" class="tabid input-small" value="@string.Format("Page {0}",x)"/>
+                    </a></li>
+                }
+            </ul>
+        @for (var x = 0; x < Model.Pages.Count; x++)
+        {
+            <div id="@string.Format("page-{0}", x)">
+                        <div class="container">
+                    <div class="row">
+                        <div class="span4">
+                            <label>
+                                Class</label>
+
+                                <select name="@string.Format("Pages[{0}].CSS", x)" id="@string.Format("Pages_{0}_CSS", x)" class="required input-medium">
+                                @if (@Model.Pages[x].CSS == "step"){
+                                    <option value="step" selected="selected">step</option>
+                                }
+                                else
+                                {
+                                    <option value="step">step</option>                                    
+                                }
+                                @if (@Model.Pages[x].CSS == "step"){
+                                    <option value="step slide" selected="selected">step slide</option>
+                                }
+                                else
+                                {
+                                    <option value="step slide">step slide</option>                                    
+                                }
+                                </select>
+                        </div>
+                        <div class="span4">
+                            <label>
+                                Rotate</label>
+                            <input type="text" name="@string.Format("Pages[{0}].Rotate", x)" id="@string.Format("Pages_{0}_Rotate", x)" class="required knob" data-width="50"
+                                data-height="50" data-cursor="true" data-displayinput="true" data-min="-360" data-max="360" value="@Model.Pages[x].Rotate" />
+                        </div>
+                        <div class="span4">
+                            <label>
+                                Scale</label>
+                            <input type="text" name="@string.Format("Pages[{0}].Scale", x)" id="@string.Format("Pages_{0}_Scale", x)" class="required knob" data-width="50"
+                                data-height="50" data-cursor="true" data-displayinput="true" data-min="-15" data-max="15" value="@Model.Pages[x].Scale" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <label>
+                                X</label>
+                            <input type="text" name="@string.Format("Pages[{0}].X", x)" id="@string.Format("Pages_{0}_X", x)"  class="required knob" data-width="50" data-height="50"
+                                data-cursor="true" data-displayinput="true" data-min="-5000" data-max="5000" value="@Model.Pages[x].X" />
+                        </div>
+                        <div class="span4">
+                            <label>
+                                Y</label>
+                            <input type="text" name="@string.Format("Pages[{0}].Y", x)"  id="@string.Format("Pages_{0}_Y", x)" class="required knob" data-width="50" data-height="50"
+                                data-cursor="true" data-displayinput="true" data-min="-5000" data-max="5000" value="@Model.Pages[x].Y" />
+                        </div>
+                        <div class="span4">
+                            <label>
+                                Z</label>
+                            <input type="text" name="@string.Format("Pages[{0}].Z", x)" id="@string.Format("Pages_{0}_Z", x)" class="required knob" data-width="50" data-height="50"
+                                data-displayinput="true" data-min="-5000" data-max="5000" value="@Model.Pages[x].Z" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span12">
+                            <label>
+                                Content</label>
+                            <textarea class="pagecontent" name="@string.Format("Pages[{0}].Content", x)" id="@string.Format("Pages_{0}_Content", x)" cols="700" rows="15" class="text ui-widget-content ui-corner-all">@Model.Pages[x].Content</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    </div>
+</div>
+}
+
+<script id="tabtemplate" type="text/x-jquery-tmpl">
+            <div class="container">
+                <div class="row">
+                    <div class="span4">
+                        <label>
+                            Class</label>
+                            <select name="Pages[${Index}].CSS" id="Pages_${Index}_CSS"  class="input-medium">
+                            <option value="step">step</option>
+                            <option value="step slide">step slide</option>
+                            </select>
+                    </div>
+                    <div class="span4">
+                        <label>
+                            Rotate</label>
+                        <input type="text" name="Pages[${Index}].Rotate" id="Pages_${Index}_Rotate" class="knob" data-width="50"
+                            data-height="50" data-cursor="true" data-displayinput="true" data-min="-360" data-max="360" value="0" />
+                    </div>
+                    <div class="span4">
+                        <label>
+                            Scale</label>
+                        <input type="text" name="Pages[${Index}].Scale" id="Pages_${Index}_Scale" class="knob" data-width="50"
+                            data-height="50" data-cursor="true" data-displayinput="true" data-min="-15" data-max="15" value="1" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4">
+                        <label>
+                            X</label>
+                        <input type="text" name="Pages[${Index}].X" id="Pages_${Index}_X"  class="knob" data-width="50" data-height="50"
+                            data-cursor="true" data-displayinput="true" data-min="-5000" data-max="5000" value="0" />
+                    </div>
+                    <div class="span4">
+                        <label>
+                            Y</label>
+                        <input type="text" name="Pages[${Index}].Y"  id="Pages_${Index}_Y" class="knob" data-width="50" data-height="50"
+                            data-cursor="true" data-displayinput="true" data-min="-5000" data-max="5000" value="0" />
+                    </div>
+                    <div class="span4">
+                        <label>
+                            Z</label>
+                        <input type="text" name="Pages[${Index}].Z" id="Pages_${Index}_Z" class="knob" data-width="50" data-height="50"
+                            data-displayinput="true" data-min="-5000" data-max="5000" value="0" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span12">
+                        <label>
+                            Content</label>
+                        <textarea class="pagecontent" name="Content" id="Pages[${Index}].Content" cols="700" rows="15" class="text ui-widget-content ui-corner-all"></textarea>
+                    </div>
+                </div>
+            </div>
+</script>

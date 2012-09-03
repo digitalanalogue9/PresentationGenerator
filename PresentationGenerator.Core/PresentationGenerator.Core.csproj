@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2C07AEE-14E5-4E51-B3ED-827E7ED497AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PresentationGenerator.Core</RootNamespace>
+    <AssemblyName>PresentationGenerator.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Esent.Interop">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Esent.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.3.4.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>..\packages\FluentValidation.MVC4.3.4.0.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Lucene.Net.Contrib.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler">
+      <HintPath>..\packages\MiniProfiler.2.0.2\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\Libraries\Moq\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq.Contrib">
+      <HintPath>..\Libraries\Moq\Moq.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcMiniProfiler.RavenDb">
+      <HintPath>..\packages\MiniProfiler.RavenDb.2.1.0\lib\MvcMiniProfiler.RavenDb.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.Client.1.2.2067-Unstable\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Backup">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Raven.Backup.exe</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Embedded">
+      <HintPath>..\packages\RavenDB.Embedded.1.2.2067-Unstable\lib\net40\Raven.Client.Embedded.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.Client.1.2.2067-Unstable\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Database">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Raven.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Smuggler">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Raven.Smuggler.exe</HintPath>
+    </Reference>
+    <Reference Include="Spatial4n.Core">
+      <HintPath>..\packages\RavenDB.Database.1.2.2067-Unstable\lib\net40\Spatial4n.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandlers\DeletePresentationCommandHandler.cs" />
+    <Compile Include="CommandHandlers\MakePresentationCommandHandler.cs" />
+    <Compile Include="CommandHandlers\RegisterNewUserCommandHandler.cs" />
+    <Compile Include="CommandHandlers\ReOrderPagesCommandHandler.cs" />
+    <Compile Include="CommandInvokers\CommandInvoker.cs" />
+    <Compile Include="CommandInvokers\ICommandInvoker.cs" />
+    <Compile Include="Commands\DeletePresentationCommand.cs" />
+    <Compile Include="Commands\MakePresentationCommand.cs" />
+    <Compile Include="Commands\RegisterNewUserCommand.cs" />
+    <Compile Include="Commands\ReOrderPagesCommand.cs" />
+    <Compile Include="Conventions\RegisterFirstInstanceOfInterface.cs" />
+    <Compile Include="Conventions\RegisterGenericTypesOfInterface.cs" />
+    <Compile Include="DependencyResolution\Bootstrapper.cs" />
+    <Compile Include="DependencyResolution\CoreRegistry.cs" />
+    <Compile Include="DependencyResolution\ModelBinderMappingDictionary.cs" />
+    <Compile Include="DependencyResolution\StructureMapControllerFactory.cs" />
+    <Compile Include="DependencyResolution\StructureMapModelBinderProvider.cs" />
+    <Compile Include="Documents\Page.cs" />
+    <Compile Include="Documents\UserDocument.cs" />
+    <Compile Include="Entities\UserDocument.cs" />
+    <Compile Include="Indexes\Presentations_ToListView.cs" />
+    <Compile Include="Indexes\Users_ByUsername.cs" />
+    <Compile Include="Repositories\IEntityRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Security\AuthenticationService.cs" />
+    <Compile Include="Security\IAuthenticationService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Utility\EnumerableExtensions.cs" />
+    <Compile Include="Utility\HashUtil.cs" />
+    <Compile Include="Utility\IPresentationHelper.cs" />
+    <Compile Include="Utility\NamedInstanceUtil.cs" />
+    <Compile Include="Documents\IDocument.cs" />
+    <Compile Include="Documents\PresentationDocument.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\Presentation.cs" />
+    <Compile Include="CommandHandlers\ICommandHandler.cs" />
+    <Compile Include="IAppEngine.cs" />
+    <Compile Include="Repositories\PresentationRepository.cs" />
+    <Compile Include="Repositories\IPresentationRepository.cs" />
+    <Compile Include="Utility\PagedList.cs" />
+    <Compile Include="Utility\PresentationSearchHelper.cs" />
+    <Compile Include="Utility\SearchHelper.cs" />
+    <Compile Include="Utility\GuidUtil.cs" />
+    <Compile Include="Utility\Voodoo\IProjectionExpression.cs" />
+    <Compile Include="Utility\Voodoo\ProjectionExpression.cs" />
+    <Compile Include="Utility\Voodoo\QueryableExtensions.cs" />
+    <Compile Include="Views\Factories\GetMyPresentationsViewFactory.cs" />
+    <Compile Include="Views\Models\Input\DeletePresentationInputModel.cs" />
+    <Compile Include="Views\Models\Input\GetPresentationInputModel.cs" />
+    <Compile Include="Views\Models\Input\MakePresentationInputModel.cs" />
+    <Compile Include="Views\Models\Input\PresentationListInputModel.cs" />
+    <Compile Include="Views\Models\Input\ReorderPagesInputModel.cs" />
+    <Compile Include="Views\Models\Input\RetrievePresentationInputModel.cs" />
+    <Compile Include="Views\Factories\GetPresentationViewFactory.cs" />
+    <Compile Include="Views\Factories\IViewFactory.cs" />
+    <Compile Include="Views\Factories\IViewRepository.cs" />
+    <Compile Include="Repositories\EntityRepository.cs" />
+    <Compile Include="Utility\ILogEventContext.cs" />
+    <Compile Include="Utility\ILogger.cs" />
+    <Compile Include="Utility\LogEventContext.cs" />
+    <Compile Include="Utility\NLogLogger.cs" />
+    <Compile Include="Utility\StringExtensions.cs" />
+    <Compile Include="Views\Models\Output\GetPresentationViewModel.cs" />
+    <Compile Include="Views\Models\Output\PresentationListItem.cs" />
+    <Compile Include="Views\Models\Output\PresentationListViewModel.cs" />
+    <Compile Include="Views\Models\Output\UserRegisterViewModel.cs" />
+    <Compile Include="Views\Models\Output\UserSignInViewModel.cs" />
+    <Compile Include="Views\Models\Output\UserSignInViewModelImpl.cs" />
+    <Compile Include="Web\LargeJsonResult.cs" />
+    <Compile Include="Views\Models\Output\RetrievePresentationViewModel.cs" />
+    <Compile Include="Views\Factories\ViewRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\IdUtil.cs" />
+    <Compile Include="Web\GenericBinderResolver.cs" />
+    <Compile Include="Web\IModelBinder.cs" />
+    <Compile Include="Web\ModelBinder.cs" />
+    <Compile Include="Web\UserIdFilter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\RavenDB.Embedded.1.2.2067-Unstable\tools\Raven.Studio.xap">
+      <Link>Raven.Studio.xap</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MiniProfiler.RavenDb.Readme.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UseGlobalSettings="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

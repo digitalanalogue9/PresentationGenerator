@@ -1,0 +1,40 @@
+#tabs li .ui-icon-close
+{
+    float: left;
+    margin: 0.4em 0.2em 0 0;
+    cursor: pointer;
+}
+
+.tabid
+{
+    font-size: 0.87em !important;
+}
+
+.messagerow
+{
+  /*  height: 60px;*/
+    height: 60px;
+}
+
+#systembutton
+{
+    margin-top: 20px;
+}
+
+.navbarlogon 
+{
+	margin-left : 30px;
+}
+
+label.error
+{
+    float: none;
+    color: red;
+    padding-left: .5em;
+    vertical-align: top;
+    display: inline;
+}
+
+.deleteform {
+	display:inline;
+}

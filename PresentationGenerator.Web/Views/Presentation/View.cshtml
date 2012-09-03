@@ -1,0 +1,11 @@
+﻿@model PresentationGenerator.Core.Views.Models.Output.GetPresentationViewModel
+@using PresentationGenerator.Web.HtmlHelpers;
+@using StackExchange.Profiling;
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_JustDocType.cshtml";
+}
+@foreach (var page in Model.Pages)
+{
+    @Html.PresentationPage(page);
+}

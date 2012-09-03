@@ -1,0 +1,39 @@
+﻿@model PresentationGenerator.Core.Views.Models.Output.UserRegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_BootstrapLayout.cshtml";
+}
+@section navigation
+{
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "User", FormMethod.Post, new { @id = "register form-horizontal" }))
+{
+    <div class="control-group">
+      <label class="control-label" for="Username">Username</label>
+      <div class="controls">
+        <input type="text" class="input-xxlarge" id="Username" name="Username"/>
+        @Html.ValidationMessage("Username")
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="Password">Password</label>
+      <div class="controls">
+        <input type="password" class="input-xxlarge" id="Password" name="Password"/>
+        @Html.ValidationMessage("Password")
+      </div>
+    </div>
+    
+    <div class="row">
+        <div class="span12">
+            <label for="Username">Remember me</label>
+            <input type="checkbox" id="StayLoggedIn" name="StayLoggedIn" value="true" />
+            @Html.ValidationMessage("StayLoggedIn")
+        </div>
+    </div>
+    <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Register</button>
+    </div>
+}
